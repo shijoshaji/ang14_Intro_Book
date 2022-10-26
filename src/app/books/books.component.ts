@@ -33,7 +33,9 @@ export class BooksComponent implements OnInit {
       amount: 959.80
     }
   ];
-  
+
+  cart: Books[] = [];
+
   isDisplayed: boolean = false;
   btnName: string = 'Show Books';
   myName: string = '';
@@ -42,6 +44,8 @@ export class BooksComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  // NOTE: Books component is parent, Book component is child
 
   toggleDisplay() {
     this.isDisplayed = !this.isDisplayed;
