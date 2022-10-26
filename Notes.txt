@@ -1,0 +1,9 @@
+Built in attribute directives
+    NgClass
+    NgStyle
+    NgModel
+
+Built in structural directives
+    Ngif
+    NgFor
+    NgSwitch
