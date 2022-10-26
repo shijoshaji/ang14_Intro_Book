@@ -17,13 +17,15 @@
     </ul>
 </div>
 <hr>
-<p>With Book Array</p>
+
 <div *ngIf="isDisplayed">
-    <ul>
-        <li *ngFor="let item of bookList; let i = index">
-            {{i+1}}
-            {{item.name}} by {{item.author}}
+    <p>With Book Array</p>
+    <ol>
+        <li *ngFor="let item of bookList" class="book">
+            {{item.name | titlecase }} by {{item.author | uppercase}}
             <img [src]="item.imgUrl" [alt]="item.name" width="100px">
+            <span>{{item.amount | currency:'INR'}}</span>
+            <button>Add to Cart</button>
         </li>
-    </ul>
+    </ol>
 </div>
