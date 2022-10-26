@@ -1,0 +1,18 @@
+<div>
+    <label for="name">Enter Your Name: </label>
+    <input type="text" name="" id="" [(ngModel)]="myName" />
+</div>
+<p *ngIf="myName">Welcome, {{myName}} to Sample Book Store</p>
+<button [disabled]="isDisabled" (click)="toggleDisplay()">{{btnName}}</button>
+<div>
+    <ul>
+        <li>{{name}} by {{author}}
+            <img src="{{imgUrl}}" alt="{{name}}" width="100px">
+        </li>
+        <!-- Below code: Good Way. set path programitacally property binding-->
+
+        <li>{{name}} by {{author}}
+            <img [src]="imgUrl" [alt]="name" width="100px">
+        </li>
+    </ul>
+</div>
