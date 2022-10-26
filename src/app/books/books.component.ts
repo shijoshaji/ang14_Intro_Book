@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-
-interface Books {
-  name: string,
-  author: string,
-  imgUrl: string;
-  amount: number;
-}
+import { Books } from '../interfaces/book';
 
 
 @Component({
@@ -40,6 +33,7 @@ export class BooksComponent implements OnInit {
       amount: 959.80
     }
   ];
+  
   isDisplayed: boolean = false;
   btnName: string = 'Show Books';
   myName: string = '';

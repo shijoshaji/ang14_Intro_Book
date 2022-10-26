@@ -21,11 +21,17 @@
 <div *ngIf="isDisplayed">
     <p>With Book Array</p>
     <ol>
-        <li *ngFor="let item of bookList" class="book">
-            {{item.name | titlecase }} by {{item.author | uppercase}}
-            <img [src]="item.imgUrl" [alt]="item.name" width="100px">
-            <span>{{item.amount | currency:'INR'}}</span>
-            <button>Add to Cart</button>
-        </li>
+        <ng-container *ngFor="let item of bookList">
+            <!-- <li class="book">
+                {{item.name | titlecase }} by {{item.author | uppercase}}
+                <img [src]="item.imgUrl" [alt]="item.name" width="100px">
+                <span>{{item.amount | currency:'INR'}}</span>
+                <button>Add to Cart</button>
+            </li> -->
+
+            <!-- PARENT TO CHILD DATA -->
+            <app-book [eachBookItem]="item"></app-book>
+        </ng-container>
     </ol>
+
 </div>
