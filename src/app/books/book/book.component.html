@@ -1,9 +1,10 @@
-
-
 <li class="book">
-    {{eachBookItem.name | titlecase }} by {{eachBookItem.author | uppercase}}
-    <img [src]="eachBookItem.imgUrl" [alt]="eachBookItem.name" width="100px">
-    <span>{{eachBookItem.amount | currency:'INR'}}</span>
-    <button *ngIf="!isInCart" (click)="addToCartChild()">Add to Cart</button>
-    <button *ngIf="isInCart" (click)="removeFromCart()">Remove from Cart</button>
+    <img [src]="eachBookItem.imgUrl" [alt]="eachBookItem.name" width="100px" class="m-auto">
+    <div class="m-auto">
+        <p class="text-lg">{{eachBookItem.name | titlecase }} by {{eachBookItem.author | uppercase}}</p>
+        <p class="my-4">{{eachBookItem.amount | currency:'INR'}}</p>
+        <button class="bg-red-300 rounded p-3" *ngIf="!isInCart" (click)="addToCartChild()">Add to Cart</button>
+        <button class="bg-red-300 rounded p-3" *ngIf="isInCart" (click)="removeFromCart()">Remove from
+            Cart</button>
+    </div>
 </li>

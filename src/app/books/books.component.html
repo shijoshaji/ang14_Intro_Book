@@ -1,25 +1,28 @@
 <div>
     <label for="name">Enter Your Name: </label>
-    <input type="text" name="" id="" [(ngModel)]="myName" />
+    <input type="text" name="" id="" [(ngModel)]="myName" class="bg-red-200 border-spacing-0" />
 </div>
 <p *ngIf="myName">Welcome, {{myName}} to Sample Book Store</p>
-<button (click)="toggleDisplay()">{{btnName}}</button>
-<div *ngIf="isDisplayed">
+<hr>
+<button class="m-auto bg-red-300 rounded p-3" (click)="toggleDisplay()">{{btnName}}</button>
+
+<!-- NOTE: it was basic so commenting -->
+<!-- <div *ngIf="isDisplayed">
     <ul>
         <li>{{name}} by {{author}}
             <img src="{{imgUrl}}" alt="{{name}}" width="100px">
         </li>
-        <!-- Below code: Good Way. set path programitacally property binding-->
+        NOTE: Below code: Good Way. set path programitacally property binding
 
         <li>{{name}} by {{author}}
             <img [src]="imgUrl" [alt]="name" width="100px">
         </li>
     </ul>
 </div>
-<hr>
+<hr> -->
 
 <div *ngIf="isDisplayed">
-    <p>With Book Array</p>
+    <!-- <p>With Book Array</p> -->
     <ol>
         <ng-container *ngFor="let item of bookList">
             <!-- <li class="book">
@@ -31,7 +34,7 @@
 
             <!-- PARENT TO CHILD DATA -->
             <!-- <app-book (emitBook)="addToCartParent($event)" [eachBookItem]="item"></app-book> -->
-            <app-book  [eachBookItem]="item"></app-book>
+            <app-book [eachBookItem]="item" class="w-1 p-5 text-center"></app-book>
         </ng-container>
     </ol>
 
