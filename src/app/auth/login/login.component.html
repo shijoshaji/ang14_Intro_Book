@@ -1,20 +1,25 @@
 <div class="flex  h-screen justify-center">
-    <form (ngSubmit)="login()" class="p-4 rounded border m-auto">
+    <form (ngSubmit)="login()" #myLoginForm="ngForm" class="p-4 rounded border m-auto">
         <h3 class="text-center text-xl">Login</h3>
         <div class="my-5">
             <label for="email">Email:</label>
-            <input type="email" [(ngModel)]="loginForm.email" name="email" id="email" placeholder="Enter Email"
-                class="p-2 rounded w-full border">
+            <input type="email" [(ngModel)]="loginForm.email" name="email" #email="ngModel" id="email"
+                placeholder="Enter Email" class="p-2 rounded w-full border" required>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="p-2 text-red-500">
+                <span class="text-xs">* Please enter email</span>
+            </div>
         </div>
         <div class="my-5">
             <label for="pwd">Password:</label>
-            <input type="password" [(ngModel)]="loginForm.password" name="password" id="pwd" placeholder="Enter Password"
-                class="p-2 rounded w-full border">
+            <input type="password" [(ngModel)]="loginForm.password" name="password" #password="ngModel" id="pwd"
+                placeholder="Enter Password" class="p-2 rounded w-full border" required>
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="p-2 text-red-500">
+                <span class="text-xs">* Please enter password</span>
+            </div>
         </div>
         <div class="my-5">
-            <button type="submit" class="p-2 w-full text-white rounded bg-red-400 hover:bg-red-300">Login</button>
+            <button type="submit" [disabled]="myLoginForm.form.invalid"
+                class="p-2 w-full text-white rounded bg-red-400 hover:bg-red-300">Login</button>
         </div>
-
-        {{loginForm.email}}| {{loginForm.password}}
     </form>
 </div>
