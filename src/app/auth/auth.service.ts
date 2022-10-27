@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { Router } from '@angular/router';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { loginForm, signupForm } from '../interfaces/auth';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class AuthService {
   isAuntenticated: boolean = false;
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   login(form: loginForm) {
     const auth = getAuth();
@@ -18,15 +19,16 @@ export class AuthService {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        alert('Welcome');
         this.isAuntenticated = true;
+        // Navigate to main page after login
+        this.router.navigate(['']);
         // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        alert('Invalid');
         this.isAuntenticated = false;
+        alert('Invalid Credentials!! Please retry');
       });
   }
 
@@ -48,5 +50,18 @@ export class AuthService {
         // ..
       });
 
+  }
+
+
+  logout() {
+
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      this.router.navigate(['login']);
+      this.isAuntenticated = false;
+    }).catch((error) => {
+      // An error happened.
+    });
   }
 }
