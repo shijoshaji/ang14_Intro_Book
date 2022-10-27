@@ -26,6 +26,7 @@
                 class="p-2 text-red-500">
                 <span class="text-xs">* Please Enter Confirm Password</span>
             </div>
+            <span class="p-2 text-red-500 text-xs" *ngIf="!isPasswordMatched">Password mismatch, Retry</span>
         </div>
         <div class="my-5">
             <button type="submit" [disabled]="mySignUpForm.form.invalid"
