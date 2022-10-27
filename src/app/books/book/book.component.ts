@@ -6,7 +6,7 @@ import { Books } from '../../interfaces/book';
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
-  styleUrls: ['./book.component.scss']
+  styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
 
@@ -32,9 +32,9 @@ export class BookComponent implements OnInit {
   }
 
 
-  removeFromCart(){
-    this.isInCart=false
-    this.cartService.remove(this.eachBookItem)
+  removeFromCart() {
+    this.isInCart = false;
+    this.cartService.remove(this.eachBookItem);
   }
 
 }
