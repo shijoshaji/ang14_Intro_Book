@@ -40,8 +40,8 @@ export class BooksComponent implements OnInit {
     }
 
   }
-  addToCartParent(eachBookItem: Books) {
-    console.log('data From child to parent', eachBookItem);
+  // addToCartParent(eachBookItem: Books) {
+  //   console.log('data From child to parent', eachBookItem);
 
-  }
+  // }
 }

@@ -1,0 +1,19 @@
+
+<div *ngIf="getCart().length > 0">    
+    <table border="1">
+        <caption>Total items in cart: {{getCart().length}} </caption>
+        <thead>
+            <tr>
+                <th>Name of Book</th>
+                <th> Cost</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let item of getCart()">
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.amount}}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>

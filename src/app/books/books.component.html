@@ -30,7 +30,8 @@
             </li> -->
 
             <!-- PARENT TO CHILD DATA -->
-            <app-book (emitBook)="addToCartParent($event)" [eachBookItem]="item"></app-book>
+            <!-- <app-book (emitBook)="addToCartParent($event)" [eachBookItem]="item"></app-book> -->
+            <app-book  [eachBookItem]="item"></app-book>
         </ng-container>
     </ol>
 
